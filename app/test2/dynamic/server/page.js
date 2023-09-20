@@ -1,10 +1,17 @@
-export default function DynamicServer({ searchParams }) {
-  console.log('Test 2: rendering DynamicServer');
-  // trigger dynamic rendering
-  const foobar = searchParams?.foobar;
+'use server'
+import { serverSideTranslations } from "../../../i18n";
+import InternalClientComponent from "./InternalClientComponent";
+
+const getData = async () => {
+  return await serverSideTranslations();
+}
+
+export default async function DynamicServer({ searchParams }) {
+  const { locale, translation } = await getData();
+ 
   return (
     <div>
-      <h2>Server component in a dynamic route</h2>
+     <InternalClientComponent  locale={locale} translation={translation}/>
     </div>
   );
 }
