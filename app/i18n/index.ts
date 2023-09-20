@@ -1,3 +1,4 @@
+'use server'
 import { headers, cookies } from 'next/headers';
 import { createInstance } from 'i18next'
 import resourcesToBackend from 'i18next-resources-to-backend'
@@ -32,11 +33,21 @@ const getLngFromReq = ({ cookies, headers }: { cookies: ReadonlyRequestCookies, 
 
 export async function useTranslation(ns, options = {}) {
 
-  const lng = getLngFromReq({ cookies: cookies(), headers: headers() })
+  let lng;
+  lng = getLngFromReq({ cookies: cookies(), headers: headers() })
   const i18nextInstance = await initI18next(lng, ns)
   return {
     // @ts-ignore
     t: i18nextInstance.getFixedT(lng, ns),
     i18n: i18nextInstance
+  }
+}
+
+export async function serverSideTranslations() {
+  const lng = getLngFromReq({ cookies: cookies(), headers: headers() })
+  
+  return {
+    translation: (await import(`./locales/${lng}/translation.json`, { assert: { type: 'json' } })).default,
+    locale: lng
   }
 }
