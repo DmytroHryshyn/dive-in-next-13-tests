@@ -1,6 +1,19 @@
 import Link from 'next/link';
+import methods from '../../test';
 
-export default function Test2() {
+export const getData = async () => {
+  const data = methods.serverSide();
+  
+  const componentString = await methods.render();
+  return {
+    props: data, 
+    html: componentString, 
+  }
+}
+
+export default async function Test2() {
+  const data = await getData();
+  console.log(data)
   return (
     <div>
       <h1>Test 2</h1>
