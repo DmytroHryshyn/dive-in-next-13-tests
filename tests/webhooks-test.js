@@ -7,7 +7,7 @@ var expect = chakram.expect;
 describe('tests for /webhooks', function() {
     describe('tests for get', function() {
         it('should respond 200 for "OK"', function() {
-            var response = request('get', 'http://localhost:3002/webhooks', { 
+            var response = request('get', 'http://localhost:3002/v1/webhooks', { 
                 'qs': {"apiKey":"Lorem elit qui Excepteur"},
                 'time': true
             });
@@ -18,7 +18,7 @@ describe('tests for /webhooks', function() {
 
 
         it('should respond 401 for "Authorization information is missing or invalid."', function() {
-            var response = request('get', 'http://localhost:3002/webhooks', { 
+            var response = request('get', 'http://localhost:3002/v1/webhooks', { 
                 'qs': {"apiKey":"elit amet aute"},
                 'time': true
             });
@@ -29,7 +29,7 @@ describe('tests for /webhooks', function() {
 
 
         it('should respond 404 for "No webhooks were found"', function() {
-            var response = request('get', 'http://localhost:3002/webhooks', { 
+            var response = request('get', 'http://localhost:3002/v1/webhooks', { 
                 'qs': {"apiKey":"amet"},
                 'time': true
             });
@@ -42,7 +42,7 @@ describe('tests for /webhooks', function() {
     
     describe('tests for post', function() {
         it('should respond 201 for "OK, webhook created"', function() {
-            var response = request('post', 'http://localhost:3002/webhooks', { 
+            var response = request('post', 'http://localhost:3002/v1/webhooks', { 
                 'qs': {"apiKey":"in"},
                 'time': true
             });
@@ -53,7 +53,7 @@ describe('tests for /webhooks', function() {
 
 
         it('should respond 400 for "Bad request. webhook body is invalid."', function() {
-            var response = request('post', 'http://localhost:3002/webhooks', { 
+            var response = request('post', 'http://localhost:3002/v1/webhooks', { 
                 'qs': {"apiKey":"amet"},
                 'time': true
             });
@@ -64,7 +64,7 @@ describe('tests for /webhooks', function() {
 
 
         it('should respond 401 for "Authorization information is missing or invalid."', function() {
-            var response = request('post', 'http://localhost:3002/webhooks', { 
+            var response = request('post', 'http://localhost:3002/v1/webhooks', { 
                 'qs': {"apiKey":"cupidatat ad do in"},
                 'time': true
             });

@@ -7,7 +7,7 @@ var expect = chakram.expect;
 describe('tests for /payments/{id}', function() {
     describe('tests for get', function() {
         it('should respond 200 for "OK"', function() {
-            var response = request('get', 'http://localhost:3002/payments/56443166', { 
+            var response = request('get', 'http://localhost:3002/v1/payments/56443166', { 
                 'qs': {"apiKey":"ea id enim"},
                 'time': true
             });
@@ -18,7 +18,7 @@ describe('tests for /payments/{id}', function() {
 
 
         it('should respond 401 for "Authorization information is missing or invalid."', function() {
-            var response = request('get', 'http://localhost:3002/payments/-33169553', { 
+            var response = request('get', 'http://localhost:3002/v1/payments/-33169553', { 
                 'qs': {"apiKey":"elit tempor"},
                 'time': true
             });
@@ -29,7 +29,7 @@ describe('tests for /payments/{id}', function() {
 
 
         it('should respond 404 for "Payment was not found"', function() {
-            var response = request('get', 'http://localhost:3002/payments/-68487655', { 
+            var response = request('get', 'http://localhost:3002/v1/payments/-68487655', { 
                 'qs': {"apiKey":"sed minim ad"},
                 'time': true
             });

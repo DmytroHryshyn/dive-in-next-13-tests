@@ -7,7 +7,7 @@ var expect = chakram.expect;
 describe('tests for /webhooks/{id}', function() {
     describe('tests for delete', function() {
         it('should respond 201 for "OK, hook removed successfully"', function() {
-            var response = request('delete', 'http://localhost:3002/webhooks/37910008', { 
+            var response = request('delete', 'http://localhost:3002/v1/webhooks/37910008', { 
                 'qs': {"apiKey":"velit id enim irure in"},
                 'time': true
             });
@@ -18,7 +18,7 @@ describe('tests for /webhooks/{id}', function() {
 
 
         it('should respond 400 for "Bad request. hook id is invalid."', function() {
-            var response = request('delete', 'http://localhost:3002/webhooks/-32898642', { 
+            var response = request('delete', 'http://localhost:3002/v1/webhooks/-32898642', { 
                 'qs': {"apiKey":"sed laborum culpa"},
                 'time': true
             });
@@ -29,7 +29,7 @@ describe('tests for /webhooks/{id}', function() {
 
 
         it('should respond 401 for "Authorization information is missing or invalid."', function() {
-            var response = request('delete', 'http://localhost:3002/webhooks/24283263', { 
+            var response = request('delete', 'http://localhost:3002/v1/webhooks/24283263', { 
                 'qs': {"apiKey":"ea proident nostrud labore"},
                 'time': true
             });
@@ -42,7 +42,7 @@ describe('tests for /webhooks/{id}', function() {
     
     describe('tests for get', function() {
         it('should respond 200 for "OK"', function() {
-            var response = request('get', 'http://localhost:3002/webhooks/-41454448', { 
+            var response = request('get', 'http://localhost:3002/v1/webhooks/-41454448', { 
                 'qs': {"apiKey":"deserunt"},
                 'time': true
             });
@@ -53,7 +53,7 @@ describe('tests for /webhooks/{id}', function() {
 
 
         it('should respond 401 for "Authorization information is missing or invalid."', function() {
-            var response = request('get', 'http://localhost:3002/webhooks/-24184138', { 
+            var response = request('get', 'http://localhost:3002/v1/webhooks/-24184138', { 
                 'qs': {"apiKey":"et id ullamco"},
                 'time': true
             });
@@ -64,7 +64,7 @@ describe('tests for /webhooks/{id}', function() {
 
 
         it('should respond 404 for "Webhook was not found"', function() {
-            var response = request('get', 'http://localhost:3002/webhooks/15611798', { 
+            var response = request('get', 'http://localhost:3002/v1/webhooks/15611798', { 
                 'qs': {"apiKey":"ut sit incididunt anim"},
                 'time': true
             });
@@ -77,7 +77,7 @@ describe('tests for /webhooks/{id}', function() {
     
     describe('tests for patch', function() {
         it('should respond 201 for "OK, webhook edited successfully"', function() {
-            var response = request('patch', 'http://localhost:3002/webhooks/77310595', { 
+            var response = request('patch', 'http://localhost:3002/v1/webhooks/77310595', { 
                 'qs': {"apiKey":"culpa ea officia reprehenderit"},
                 'time': true
             });
@@ -88,7 +88,7 @@ describe('tests for /webhooks/{id}', function() {
 
 
         it('should respond 400 for "Bad request. Webhook body is invalid."', function() {
-            var response = request('patch', 'http://localhost:3002/webhooks/-30291480', { 
+            var response = request('patch', 'http://localhost:3002/v1/webhooks/-30291480', { 
                 'qs': {"apiKey":"eu sit"},
                 'time': true
             });
@@ -99,7 +99,7 @@ describe('tests for /webhooks/{id}', function() {
 
 
         it('should respond 401 for "Authorization information is missing or invalid."', function() {
-            var response = request('patch', 'http://localhost:3002/webhooks/59257211', { 
+            var response = request('patch', 'http://localhost:3002/v1/webhooks/59257211', { 
                 'qs': {"apiKey":"sed sit"},
                 'time': true
             });

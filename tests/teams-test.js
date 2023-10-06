@@ -7,7 +7,7 @@ var expect = chakram.expect;
 describe('tests for /teams', function() {
     describe('tests for get', function() {
         it('should respond 200 for "OK"', function() {
-            var response = request('get', 'http://localhost:3002/teams', { 
+            var response = request('get', 'http://localhost:3002/v1/teams', { 
                 'qs': {"apiKey":"sed ut consequat"},
                 'time': true
             });
@@ -18,7 +18,7 @@ describe('tests for /teams', function() {
 
 
         it('should respond 401 for "Authorization information is missing or invalid."', function() {
-            var response = request('get', 'http://localhost:3002/teams', { 
+            var response = request('get', 'http://localhost:3002/v1/teams', { 
                 'qs': {"apiKey":"enim"},
                 'time': true
             });
@@ -29,7 +29,7 @@ describe('tests for /teams', function() {
 
 
         it('should respond 404 for "No teams were found"', function() {
-            var response = request('get', 'http://localhost:3002/teams', { 
+            var response = request('get', 'http://localhost:3002/v1/teams', { 
                 'qs': {"apiKey":"laborum ullamco ea in Duis"},
                 'time': true
             });
@@ -42,7 +42,7 @@ describe('tests for /teams', function() {
     
     describe('tests for post', function() {
         it('should respond 201 for "OK, team created"', function() {
-            var response = request('post', 'http://localhost:3002/teams', { 
+            var response = request('post', 'http://localhost:3002/v1/teams', { 
                 'qs': {"apiKey":"aliqua consequat Lorem"},
                 'time': true
             });
@@ -53,7 +53,7 @@ describe('tests for /teams', function() {
 
 
         it('should respond 400 for "Bad request. Team body is invalid."', function() {
-            var response = request('post', 'http://localhost:3002/teams', { 
+            var response = request('post', 'http://localhost:3002/v1/teams', { 
                 'qs': {"apiKey":"eu pariatur"},
                 'time': true
             });
@@ -64,7 +64,7 @@ describe('tests for /teams', function() {
 
 
         it('should respond 401 for "Authorization information is missing or invalid."', function() {
-            var response = request('post', 'http://localhost:3002/teams', { 
+            var response = request('post', 'http://localhost:3002/v1/teams', { 
                 'qs': {"apiKey":"dolore"},
                 'time': true
             });

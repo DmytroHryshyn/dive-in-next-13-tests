@@ -7,7 +7,7 @@ var expect = chakram.expect;
 describe('tests for /availabilities', function() {
     describe('tests for post', function() {
         it('should respond 201 for "OK, availability created"', function() {
-            var response = request('post', 'http://localhost:3002/availabilities', { 
+            var response = request('post', 'http://localhost:3002/v1/availabilities', { 
                 'qs': {"apiKey":"adipisicing elit tempor velit"},
                 'time': true
             });
@@ -18,7 +18,7 @@ describe('tests for /availabilities', function() {
 
 
         it('should respond 400 for "Bad request. Availability body is invalid."', function() {
-            var response = request('post', 'http://localhost:3002/availabilities', { 
+            var response = request('post', 'http://localhost:3002/v1/availabilities', { 
                 'qs': {"apiKey":"nulla sint irure"},
                 'time': true
             });
@@ -29,7 +29,7 @@ describe('tests for /availabilities', function() {
 
 
         it('should respond 401 for "Authorization information is missing or invalid."', function() {
-            var response = request('post', 'http://localhost:3002/availabilities', { 
+            var response = request('post', 'http://localhost:3002/v1/availabilities', { 
                 'qs': {"apiKey":"sed veniam aliquip"},
                 'time': true
             });
