@@ -6,12 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint", 
+    "test": "mocha ./tests"
   },
   "dependencies": {
+    "awesome-phonenumber": "^6.0.0",
+    "chakram": "^1.5.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
-    "next": "13.4.7",
+    "libphonenumber-js": "^1.9.51",
+    "mocha": "^10.2.0",
+    "next": "^13.5.4",
+    "oatts": "^1.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }
