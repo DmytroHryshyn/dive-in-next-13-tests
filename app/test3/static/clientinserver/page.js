@@ -1,5 +1,15 @@
-import ServerParent from '../../_components/ServerParent';
+import ClientChild from '../../_components/ClientChild';
 
-export default function page() {
-  return <ServerParent />;
+const heavyLibThatRendersSomethingStatic = () => {
+
+  console.log('Thats me, heavyLibThatRendersSomethingStatic!')
+
+  return <div>Result</div>
+}
+
+export default function Page() {
+  return <div>
+    {heavyLibThatRendersSomethingStatic()}
+    <ClientChild />
+  </div>
 }
