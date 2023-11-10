@@ -1,3 +1,6 @@
+'use client'
+import { getServerSideProps } from './test';
+
 export default function ComponentSSR({ user }) {
   console.log('Rendering ComponentSSR');
   return (
@@ -8,12 +11,4 @@ export default function ComponentSSR({ user }) {
   );
 }
 
-export const getServerSideProps = async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
-  const user = await response.json();
-  return {
-    props: {
-      user: user,
-    },
-  };
-};
+export { getServerSideProps }
